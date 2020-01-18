@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
 
-    public int actualDay = 1, minwhitCardAmount = 1, maxwhitCardAmount = 25, minBlackCardAmount = 1, maxBlackCardAmount = 25,totalBlackCard, totalWhiteCard;
-    public float actualCurrent = 0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo = 300, counter = 0, amountBlackCardDelivered, amountWhiteCardDeliverd;
+    int actualDay = 1, minwhitCardAmount = 1, maxwhitCardAmount = 25, minBlackCardAmount = 1, maxBlackCardAmount = 25,totalBlackCard, totalWhiteCard;
+    float actualCurrent = 0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo = 300, counter = 0, amountBlackCardDelivered, amountWhiteCardDeliverd, radius = 2;
     bool isTimeForABlackCard = false, setTime =  false;
 
     //CardsReward cardsReward;
 
+
+    GameZoneManager gameZoneManager;
+    
     public Slider whiteSlider, blackSlider;
 
     void Awake()
@@ -58,6 +61,8 @@ public class Gamemanager : MonoBehaviour
            
             if (!setTime)
             {
+                gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
+                gameZoneManager.GetInactiveInRadius(radius * GetDay());
                 TimeToGo = TimeToGo / actualCurrent;
                 setTime = true;
             }
