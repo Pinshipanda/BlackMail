@@ -15,9 +15,9 @@ public class ThirdPersonController : MonoBehaviour
     Collider Col;
 
     public Animator ACon;
-    int animState = 0;
+    int animState = 0, danceState=0;
     float speed = 0, walkSpeed, RunSpeed;
-    bool isRunning = false, isalive = true;
+    bool isRunning = false, isalive = true, beginDance=false;
 
     //Chest inclination
     Transform chest;
@@ -53,10 +53,20 @@ public class ThirdPersonController : MonoBehaviour
         {
             InpuX = Input.GetAxis("Horizontal");
             InpuY = Input.GetAxis("Vertical");
-            isRunning = Input.GetKey(KeyCode.LeftShift);
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("RT") > 0.4f)
+            {
+                isRunning = true;
+            }
+            else { isRunning = false; }
+                
             direccion.x = InpuX;
             direccion.z = InpuY;
 
+            if (Input.GetButtonDown("Fire2"))
+            {
+                beginDance = true;
+                danceState = Random.Range(1, 5);
+            }
             MovementBehaviour();
         }
     }
@@ -70,6 +80,9 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (direccion.sqrMagnitude > 0.01f)
         {
+            beginDance = false;
+            danceState = 0;
+            ACon.SetInteger("DanceState", danceState);
             animspeed = chestWeight;
             animspeed = MathCH.Remap(animspeed, -60, 0, 0.8f, 1);
             //Debug.Log(animspeed);
@@ -101,6 +114,7 @@ public class ThirdPersonController : MonoBehaviour
             direccionFinal = Vector3.zero;
             animState = 0;
             ACon.SetInteger("MoveState", animState);
+            ACon.SetInteger("DanceState", danceState);
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
