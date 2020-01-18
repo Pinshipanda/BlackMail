@@ -14,7 +14,7 @@ public class ThirdPersonController : MonoBehaviour
     Quaternion targetRotation;
     Collider Col;
 
-    //public Animator ACon;
+    public Animator ACon;
     int animState = 0;
     float speed = 0, walkSpeed, RunSpeed;
     bool isRunning = false, isalive = true;
@@ -25,7 +25,7 @@ public class ThirdPersonController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Col = GetComponent<Collider>();
         walkSpeed = VelMov;
-        RunSpeed = VelMov * 2.0f;
+        RunSpeed = VelMov * 2.2f;
         if (rb == null)
         {
             Debug.LogError("No hay rigibody BOOOOOOOOOOI");
@@ -71,7 +71,7 @@ public class ThirdPersonController : MonoBehaviour
                 VelMov = RunSpeed;
             }
 
-            //ACon.SetInteger("MoveState", animState);
+            ACon.SetInteger("MoveState", animState);
 
             direccionFinal = camara.TransformDirection(direccion);
             direccionFinal.Set(direccionFinal.x, 0, direccionFinal.z);
@@ -88,7 +88,7 @@ public class ThirdPersonController : MonoBehaviour
         {
             direccionFinal = Vector3.zero;
             animState = 0;
-            //ACon.SetInteger("MoveState", animState);
+            ACon.SetInteger("MoveState", animState);
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
