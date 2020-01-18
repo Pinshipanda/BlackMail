@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameZoneManager : MonoBehaviour
 {
 
     GameObject[] objs;
+
+    public Button exit;
 
     public float distance= 2;
 
@@ -14,6 +17,8 @@ public class GameZoneManager : MonoBehaviour
     {
         objs = GameObject.FindGameObjectsWithTag("Obstaculos");
         //GetInactiveInRadius();
+
+        exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
     }
 
     // Update is called once per frame
