@@ -1140,6 +1140,7 @@ MonoBehaviour:
   turnSpeed: 6
   camara: {fileID: 1276085750}
   ACon: {fileID: 1715787045}
+  Offsetchest: {x: 0, y: 0, z: 0}
 --- !u!1001 &1610057595
 PrefabInstance:
   m_ObjectHideFlags: 0

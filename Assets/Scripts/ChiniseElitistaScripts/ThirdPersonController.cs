@@ -19,7 +19,12 @@ public class ThirdPersonController : MonoBehaviour
     float speed = 0, walkSpeed, RunSpeed;
     bool isRunning = false, isalive = true;
 
-
+    //Chest inclination
+    Transform chest;
+    [Range(-60,0)]
+    public float chestWeight = 0;
+    Vector3 Offsetchest;
+    float animspeed;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +43,8 @@ public class ThirdPersonController : MonoBehaviour
             enabled = false;
         }
         targetRotation = transform.rotation;
+        chest = ACon.GetBoneTransform(HumanBodyBones.Chest);
+        //ACon.recorderMode
     }
 
     void Update()
@@ -63,6 +70,11 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (direccion.sqrMagnitude > 0.01f)
         {
+            animspeed = chestWeight;
+            animspeed = MathCH.Remap(animspeed, -60, 0, 0.8f, 1);
+            //Debug.Log(animspeed);
+            ACon.speed = animspeed;
+
             animState = 1;
             VelMov = walkSpeed;
             if (isRunning)
@@ -78,7 +90,7 @@ public class ThirdPersonController : MonoBehaviour
 
             if (direccionFinal.sqrMagnitude > 1.0f)
                 direccionFinal.Normalize();
-
+            VelMov *= animspeed;
             speed = direccionFinal.sqrMagnitude;
             //if (speed < 0.1f) speed = 0.1f;
             //ACon.SetFloat("Speed", speed);
@@ -93,4 +105,11 @@ public class ThirdPersonController : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
     }
+
+    private void LateUpdate()
+    {
+        Offsetchest.x = chestWeight;
+        chest.rotation *= Quaternion.Euler(Offsetchest);
+    }
+
 }
