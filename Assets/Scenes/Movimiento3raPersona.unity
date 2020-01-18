@@ -1140,7 +1140,7 @@ MonoBehaviour:
   turnSpeed: 6
   camara: {fileID: 1276085750}
   ACon: {fileID: 1715787045}
-  Offsetchest: {x: 0, y: 0, z: 0}
+  chestWeight: 0
 --- !u!1001 &1610057595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,6 +1218,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2367494033671709536, guid: 72bfe22a1e123724bbb6c328040a4030,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c3b97a92bc5af64483dfaf4451964b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72bfe22a1e123724bbb6c328040a4030, type: 3}
 --- !u!4 &1715787044 stripped
