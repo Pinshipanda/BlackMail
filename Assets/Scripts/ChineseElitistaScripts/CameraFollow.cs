@@ -13,8 +13,8 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        /*Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;*/
         //Time.timeScale = 0.1f;
     }
    /* private void Update()

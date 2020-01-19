@@ -13,19 +13,24 @@ public class MapController : MonoBehaviour
     public float Xmove = 2 , Zmove = 2, ZoomSpeed = 2;
     public float speed = 3, speedZoom = 2;
 
+    float zoomlevel = 100.0f;
 
+    public Text currentCash;
+    Gamemanager miGameManager;
+
+    Camera camMap;
     void Start()
     {
         activateMap = false;
         activatePause = false;
 
-
         mapa.DOAnchorPos(new Vector2(-2000, 0), 0.25f);
         pausa.DOAnchorPos(new Vector2(0, 1500), 0.25f);
         settingsPanel.DOAnchorPos(new Vector2(0, -1500), 0.25f);
 
-        camaraMap.GetComponent<Camera>().fieldOfView = 80f;
-
+        camMap = camaraMap.GetComponent<Camera>();
+        camMap.orthographicSize = 100;
+        miGameManager = FindObjectOfType<Gamemanager>();
     }
 
     // Update is called once per frame
@@ -54,11 +59,16 @@ public class MapController : MonoBehaviour
             {
                 pausa.DOAnchorPos(new Vector2(0, 0), 0.25f);
                 activatePause = true;
+                //Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.visible = false;
             }
             else
             {
+                //Cursor.lockState = CursorLockMode.None;
+                //Cursor.visible = true;
                 pausa.DOAnchorPos(new Vector2(0, 1500), 0.25f);
                 activatePause = false;
+                currentCash.text = miGameManager.GetCurrency().ToString();
             }
 
         }
@@ -127,16 +137,21 @@ public class MapController : MonoBehaviour
 
             }
 
-            if(Input.GetKey(KeyCode.E) && camaraMap.GetComponent<Camera>().fieldOfView >= 30)
+            if(Input.GetKey(KeyCode.E))
             {
-                camaraMap.GetComponent<Camera>().fieldOfView -= ZoomSpeed * speedZoom;
-
+                zoomlevel -= ZoomSpeed * speedZoom;
+                if (zoomlevel < 20.0f)
+                    zoomlevel = 20.0f;
+                camMap.orthographicSize = zoomlevel;
+                
             }
 
-            if (Input.GetKey(KeyCode.Q) && camaraMap.GetComponent<Camera>().fieldOfView <= 90 )
+            if (Input.GetKey(KeyCode.Q))
             {
-                camaraMap.GetComponent<Camera>().fieldOfView += ZoomSpeed * speedZoom;
-
+                zoomlevel += ZoomSpeed * speedZoom;
+                if (zoomlevel > 100.0f)
+                    zoomlevel = 100.0f;
+                camMap.orthographicSize = zoomlevel;
             }
         }
     }

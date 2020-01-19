@@ -468,6 +468,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &654919059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6194859381119457208, guid: f0b1e2e73fd16be49890343c431db19e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6194859380907134917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &740411646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1546,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6194859382124839489, guid: f0b1e2e73fd16be49890343c431db19e,
+        type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194859382200202118, guid: f0b1e2e73fd16be49890343c431db19e,
+        type: 3}
+      propertyPath: camaraMap
+      value: 
+      objectReference: {fileID: 1851331595}
+    - target: {fileID: 6194859382200202118, guid: f0b1e2e73fd16be49890343c431db19e,
+        type: 3}
+      propertyPath: currentCash
+      value: 
+      objectReference: {fileID: 654919059}
     - target: {fileID: 6194859382390802424, guid: f0b1e2e73fd16be49890343c431db19e,
         type: 3}
       propertyPath: m_AnchorMax.x
