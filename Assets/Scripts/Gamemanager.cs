@@ -11,8 +11,8 @@ public class Gamemanager : MonoBehaviour
     public float actualCurrency = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 500, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
     bool isTimeForABlackCard = false, setTime = false, countPunish = false;
 
-    //CardsReward cardsReward;
-
+    MailManager mailManager;
+    public int playerSpeed = 2;
 
     GameZoneManager gameZoneManager;
     
@@ -31,8 +31,6 @@ public class Gamemanager : MonoBehaviour
             Destroy(gameObject);
 
         }
-
-
 
     }
 
@@ -63,7 +61,7 @@ public class Gamemanager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "CardScene")
         {
             GetDay();
-           // _ui.SetActive(true);
+           //_ui.SetActive(true);
             whiteText.text = ((int)(whiteSlider.value)).ToString();
             whiteSlider.minValue = minwhitCardAmount;
             whiteSlider.maxValue = maxwhitCardAmount;
@@ -94,34 +92,44 @@ public class Gamemanager : MonoBehaviour
                 
             }
         }
-        else if(SceneManager.GetActiveScene().name == "_Game")
+        else if(SceneManager.GetActiveScene().name == "SampleScene")
         {
             
             if (GetReputation() >= 100  && countPunish)
             {
                 Debug.Log("Castigo!!");
-                punish++;                
-                taxProp = 0;
+                punish++;
+                if (taxProp >= 100)
+                {
+                    taxProp = 0;
+                }
+               
                 countPunish = false;
             }
             else
             {
-                taxProp = 0;
+                if (taxProp >= 100)
+                {
+                    taxProp = 0;
+                }
+
             }
             //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
-            //_ui.SetActive(false);
+            _ui.SetActive(false);
             //_uiMenu.SetActive(false);
             //amountBlackCurrencyCardDelivered += cardsReward.GetBlackCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas blancas
             //amountWhiteCurrencyCardDeliverd += cardsReward.GetWhiteCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas negras
 
-            //amountBlackCardDelivered += cardsReward.GetBlackMailDeliverd(); // este regresa la cantidad de cartas blancas entregadas
-            //amountWhiteCardDeliverd += cardsReward.GetWhiteMailDeliverd();// este regresa la canitdad de cartas negras entregradas
+            mailManager = GameObject.Find("Player").GetComponent<MailManager>();
+
+            amountBlackCardDelivered = mailManager.whiteLettersDelivered; // este regresa la cantidad de cartas blancas entregadas
+            amountWhiteCardDeliverd = mailManager.blackLettersDelivered;// este regresa la canitdad de cartas negras entregradas
 
             gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
             gameZoneManager.GetInactiveInRadius(radius * GetDay());
 
             actualDeliveredTotalMail = amountWhiteCardDeliverd + amountBlackCardDelivered;
-            currencyDuringGame += amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
+            currencyDuringGame = amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
 
             counter += Time.deltaTime;
             if (counter >= TimeToGo)
@@ -129,8 +137,9 @@ public class Gamemanager : MonoBehaviour
                 Time.timeScale = 0;
                 Debug.Log("TimeOver!!!");
 
-            }else if(currencyDuringGame >= currentGoal){
-                
+            }else if(actualDeliveredTotalMail >= (GetTotalBlackMail() + GetTotalWhiteMail()))
+            {
+
                 Time.timeScale = 0;
                 Debug.Log("You win");
             }
@@ -210,7 +219,7 @@ public class Gamemanager : MonoBehaviour
     {
         totalWhiteCard = (int)(whiteSlider.value);
         totalBlackCard = (int)(blackSlider.value);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public int GetTotalBlackMail()

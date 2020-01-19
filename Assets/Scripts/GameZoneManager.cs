@@ -22,6 +22,8 @@ public class GameZoneManager : MonoBehaviour
 
     public List<GameObject> activeMailBoxBlack = new List<GameObject>();
 
+    public List<GameObject> activeMailBoxTotal = new List<GameObject>(); // aqui estan todos los buzones activos
+
     // Start is called before the first frame update
     void Start()
     {
@@ -138,6 +140,7 @@ public class GameZoneManager : MonoBehaviour
             Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
             EditorUtility.SetDirty(letter);
             mailManager.AddLetter(letter);
+            activeMailBoxTotal.Add(activeMailBoxBlack[i]);
 
         }
 
@@ -147,6 +150,7 @@ public class GameZoneManager : MonoBehaviour
             //EditorUtility.SetDirty(letter);
 
             mailManager.AddLetter(letter);
+            activeMailBoxTotal.Add(activeMailBoxWhite[i]);
         }
 
         //exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
@@ -182,5 +186,6 @@ public class GameZoneManager : MonoBehaviour
 
         }
     }
+
 }
 
