@@ -90,13 +90,13 @@ public class MailManager : MonoBehaviour
             case 0:
                 // White Letter
                 //go = Instantiate(whitePrefab, backpack.transform.position, backpack.transform.rotation);
-                go = ObjectPooler.instancia.SpawnFromPool("WhiteLetter", backpack.transform.position, backpack.transform.rotation);
+               // go = ObjectPooler.instancia.SpawnFromPool("WhiteLetter", backpack.transform.position, backpack.transform.rotation);
                 break;
 
             case 1:
                 // Black Letter
                 //go = Instantiate(blackPrefab, backpack.transform.position, backpack.transform.rotation);
-                go = ObjectPooler.instancia.SpawnFromPool("BlackLetter", backpack.transform.position, backpack.transform.rotation);
+               // go = ObjectPooler.instancia.SpawnFromPool("BlackLetter", backpack.transform.position, backpack.transform.rotation);
    
                 break;
         }

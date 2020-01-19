@@ -163,7 +163,6 @@ public class GameZoneManager : MonoBehaviour
         foreach (GameObject obj in objs)
         {
             if (Vector3.Distance(transform.position, obj.transform.position) < _radius)
-            {
                 obj.SetActive(false);
 
             }

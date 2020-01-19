@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 80cfa53af6e5a4241b816143ef314617
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4830356832412757217
+    second: BTN_Config_Unpressed_MM
+  - first:
+      213: -3277350864418879646
+    second: BTN_Config_Pressed_MM
+  - first:
+      213: -3402268139449045536
+    second: BTN_Creditos_Unpressed_MM
+  - first:
+      213: -1296947433934814818
+    second: BTN_Creditos_Pressed_MM
+  - first:
+      213: 8850372027348443487
+    second: BTN_Inicio_Unpressed_MM
+  - first:
+      213: -6689604049475413782
+    second: BTN_Inicio_Pressed_MM
+  - first:
+      213: 2933433923952209886
+    second: BTN_WLetter_In
+  - first:
+      213: 1710496307666625509
+    second: BTN_BLetter_In
+  - first:
+      213: -8136911554521326533
+    second: BTN_Time_In
+  - first:
+      213: 3397881572080252687
+    second: Bar_Container
+  - first:
+      213: 4150389061764967075
+    second: Pvt_Rank
+  - first:
+      213: 3849145993789079659
+    second: Sgt_Rank
+  - first:
+      213: 1059447668030900147
+    second: Capt_Rank
+  - first:
+      213: 7491672341730725071
+    second: Marshall_Rank
+  - first:
+      213: -2250106740491896672
+    second: Btn_Continuar_UP
+  - first:
+      213: -4176277269673549809
+    second: Btn_Config_UP
+  - first:
+      213: -1859344499774877927
+    second: Btn_Salir_UP
+  - first:
+      213: 4526821693520181491
+    second: Btn_Continuar_P
+  - first:
+      213: -6100815406639573921
+    second: Btn_Config_P
+  - first:
+      213: -579342808994481164
+    second: Btn_Salir_P
+  - first:
+      213: -7008796877422207219
+    second: PauseMenu_Box
+  - first:
+      213: -5244554848938278688
+    second: Timer
+  - first:
+      213: -4386346064731727310
+    second: Fail
+  - first:
+      213: 8500124053427680401
+    second: Money
+  - first:
+      213: -4458024711223851882
+    second: Win_Tag
+  - first:
+      213: -7656326709258240614
+    second: Time_out
+  - first:
+      213: -1928125270639461126
+    second: GameOver
+  - first:
+      213: 9182157284707403512
+    second: Bk_Letter
+  - first:
+      213: 4726436553962287433
+    second: Wt_Letter
+  - first:
+      213: 2381404814709056040
+    second: BTN_Salir_Unpressed_MM
+  - first:
+      213: 4037580629468283433
+    second: BTN_Salir_Pressed_MM
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BTN_Config_Unpressed_MM
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1832
+        width: 1168
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18dcf05ddeb985b4d9ae6318cde3e106
+      internalID: -4830356832412757217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Config_Pressed_MM
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1527
+        width: 1168
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5ce93b4b06ad245a1ae94ea025bdb5
+      internalID: -3277350864418879646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Creditos_Unpressed_MM
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1250
+        width: 764
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345bf4a0dae0fe444ae8f62fb3ba7125
+      internalID: -3402268139449045536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Creditos_Pressed_MM
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 968
+        width: 763
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe927750c2599843a631446ef163d62
+      internalID: -1296947433934814818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Inicio_Unpressed_MM
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 1252
+        width: 720
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eac91aa271dc93418d872655c68fc4e
+      internalID: 8850372027348443487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Inicio_Pressed_MM
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 967
+        width: 719
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741f459acc3acdd45830e2d34800d5bf
+      internalID: -6689604049475413782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_WLetter_In
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 814
+        width: 540
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a8837b7e281874a87edbb9dde568bf
+      internalID: 2933433923952209886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_BLetter_In
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 659
+        width: 540
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205c56299c3c5a642a6ea71bab51359c
+      internalID: 1710496307666625509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Time_In
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 505
+        width: 540
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c091e41f33bc346ab68792b6b80760
+      internalID: -8136911554521326533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar_Container
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1750
+        width: 551
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76bce6601ebf94949be1dc1b8d9723ed
+      internalID: 3397881572080252687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pvt_Rank
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 2000
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a6f9e0ad9d6f8429394e6f6fffab02
+      internalID: 4150389061764967075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sgt_Rank
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 1878
+        width: 103
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9513ad2b6655c244bb68b54bd763debe
+      internalID: 3849145993789079659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capt_Rank
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 1793
+        width: 74
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ebcc1ea93737940bf34bc6b4062e08
+      internalID: 1059447668030900147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marshall_Rank
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 1657
+        width: 74
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1120c55fde9f93342aafb49fa2605070
+      internalID: 7491672341730725071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Continuar_UP
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 1631
+        width: 316
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46ee87b535829e47bc7508999929f51
+      internalID: -2250106740491896672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Config_UP
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 1486
+        width: 447
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7993c3d795576ef4593f55aca55e95a2
+      internalID: -4176277269673549809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Salir_UP
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1359
+        width: 156
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90680546379798346bec255a9bbd34e9
+      internalID: -1859344499774877927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Continuar_P
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 1231
+        width: 325
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5fa8a9f3f5ddd4290e5f165ce0a200
+      internalID: 4526821693520181491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Config_P
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 1098
+        width: 454
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1d63f8c30447a42bb73db01f1149cb
+      internalID: -6100815406639573921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Btn_Salir_P
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 957
+        width: 160
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ceafff825dbd34fadfdaa28bf96f0c
+      internalID: -579342808994481164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Box
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 147
+        width: 629
+        height: 774
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7148e51b2bbe52d4a9580da03c83af98
+      internalID: -7008796877422207219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 143
+        width: 304
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db70ebf4106e64c4faa009fde71f0783
+      internalID: -5244554848938278688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fail
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 146
+        width: 276
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b44c1c91740a8a479fccf24ac12782b
+      internalID: -4386346064731727310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Money
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 148
+        width: 175
+        height: 279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e599652cb76eac94990ca198b6ff32bf
+      internalID: 8500124053427680401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_Tag
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 380
+        width: 335
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305af62e06be04f42941e989a43cdf28
+      internalID: -4458024711223851882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Time_out
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 277
+        width: 288
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0961d0169ded13442be069611222e6c3
+      internalID: -7656326709258240614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameOver
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 132
+        width: 363
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b14b3965d456964da9b33a9959f0d9c
+      internalID: -1928125270639461126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bk_Letter
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1918
+        width: 247
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdafc3ef5ab127469093af11b07477a
+      internalID: 9182157284707403512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wt_Letter
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1916
+        width: 249
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65079584d1c6bfe47adeaca535b2a22e
+      internalID: 4726436553962287433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Salir_Unpressed_MM
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 725
+        width: 701
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a66e76ca27a1844e8aaf668c7496fb0
+      internalID: 2381404814709056040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Salir_Pressed_MM
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 466
+        width: 701
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42b926a25a8a1d4099e54c03f7ddb9f
+      internalID: 4037580629468283433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: da64be8db926ee349a88b93792cd2fa4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
