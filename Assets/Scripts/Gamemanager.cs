@@ -63,7 +63,7 @@ public class Gamemanager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "CardScene")
         {
             GetDay();
-            _ui.SetActive(true);
+           // _ui.SetActive(true);
             whiteText.text = ((int)(whiteSlider.value)).ToString();
             whiteSlider.minValue = minwhitCardAmount;
             whiteSlider.maxValue = maxwhitCardAmount;
@@ -108,7 +108,7 @@ public class Gamemanager : MonoBehaviour
                 taxProp = 0;
             }
             //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
-            _ui.SetActive(false);
+            //_ui.SetActive(false);
             //_uiMenu.SetActive(false);
             //amountBlackCurrencyCardDelivered += cardsReward.GetBlackCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas blancas
             //amountWhiteCurrencyCardDeliverd += cardsReward.GetWhiteCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas negras
