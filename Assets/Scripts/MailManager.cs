@@ -16,7 +16,7 @@ public class MailManager : MonoBehaviour
 
     private void Start()
     {
-        gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
+        //gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
     }
 
     void SearchLetters(GameObject _mailbox)
