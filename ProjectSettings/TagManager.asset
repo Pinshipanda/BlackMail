@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstaculos
   - Gamemanager
+  - MailBox
   layers:
   - Default
   - TransparentFX
