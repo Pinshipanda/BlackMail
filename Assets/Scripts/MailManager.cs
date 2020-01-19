@@ -83,12 +83,14 @@ public class MailManager : MonoBehaviour
         {
             case 0:
                 // White Letter
-                go = Instantiate(whitePrefab, backpack.transform.position, backpack.transform.rotation);
+                //go = Instantiate(whitePrefab, backpack.transform.position, backpack.transform.rotation);
+                go = ObjectPooler.instancia.SpawnFromPool("WhiteLetter", backpack.transform.position, backpack.transform.rotation);
                 break;
 
             case 1:
                 // Black Letter
-                go = Instantiate(blackPrefab, backpack.transform.position, backpack.transform.rotation);
+                //go = Instantiate(blackPrefab, backpack.transform.position, backpack.transform.rotation);
+                go = ObjectPooler.instancia.SpawnFromPool("BlackLetter", backpack.transform.position, backpack.transform.rotation);
    
                 break;
         }
@@ -102,6 +104,10 @@ public class MailManager : MonoBehaviour
             yield return new WaitForSeconds(timeToWait);
 
             go.transform.DOJump(_mailbox.transform.position, 2f, 1, 1f);
+
+            yield return new WaitForSeconds(5f);
+
+            go.SetActive(false);
         }     
     }
 }
