@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MailBox : MonoBehaviour
-{
-    // Start is called before the first frame update
 
-    public bool IsInArea = false, IsWhiteMail = true, HaveMail = false;
-    public int HowManyMails;
+{ 
+        // Start is called before the first frame update
 
-    void Start()
-    {
-       
-    }
+        public bool IsInArea = false, IsWhiteMail = true, HaveMail = false;
+        public int HowManyMails;
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+        void Start()
+        {
 
-    public void SetBool()
-    {
-        HaveMail = !HaveMail;
-    }
+        }
 
-    public bool GetBool()
-    {
-        return HaveMail;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void SetBool()
+        {
+            HaveMail = !HaveMail;
+        }
+
+        public bool GetBool()
+        {
+            return HaveMail;
+        }
+    
 }

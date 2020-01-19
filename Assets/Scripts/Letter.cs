@@ -7,11 +7,6 @@ public class Letter :MonoBehaviour
     public int type;
     public GameObject mailbox;
 
-    public Letter()
-    {
-
-    }
-
     public Letter(int _type, GameObject _mailbox)
     {
         type = _type;

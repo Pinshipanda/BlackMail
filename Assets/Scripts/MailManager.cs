@@ -64,8 +64,9 @@ public class MailManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && canDeliverLetter)
         {
-            if (other.gameObject.tag == "Mailbox")
+            if (other.gameObject.tag == "MailBox")
             {
+                Debug.Log("Con el Buzon");
                 // Find the first letter for this mailbox and deliver it.
                 SearchLetters(other.gameObject);
                 canDeliverLetter = false;
@@ -89,13 +90,13 @@ public class MailManager : MonoBehaviour
             case 0:
                 // White Letter
                 //go = Instantiate(whitePrefab, backpack.transform.position, backpack.transform.rotation);
-                go = ObjectPooler.instancia.SpawnFromPool("WhiteLetter", backpack.transform.position, backpack.transform.rotation);
+               // go = ObjectPooler.instancia.SpawnFromPool("WhiteLetter", backpack.transform.position, backpack.transform.rotation);
                 break;
 
             case 1:
                 // Black Letter
                 //go = Instantiate(blackPrefab, backpack.transform.position, backpack.transform.rotation);
-                go = ObjectPooler.instancia.SpawnFromPool("BlackLetter", backpack.transform.position, backpack.transform.rotation);
+               // go = ObjectPooler.instancia.SpawnFromPool("BlackLetter", backpack.transform.position, backpack.transform.rotation);
    
                 break;
         }
@@ -114,5 +115,11 @@ public class MailManager : MonoBehaviour
 
             go.SetActive(false);
         }     
+    }
+
+    public void AddLetter(Letter _letter)
+    {
+        Debug.Log(_letter.mailbox.name);
+        letterList.Add(_letter);
     }
 }

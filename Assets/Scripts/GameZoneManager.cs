@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class GameZoneManager : MonoBehaviour
 {
@@ -9,22 +10,22 @@ public class GameZoneManager : MonoBehaviour
     public GameObject[] objs, mailBox;
     Gamemanager gamemanager;
 
-    MailManager mailManager;
+    public MailManager mailManager;
     public Button exit;
 
-    public float distance= 2;
+    public float distance = 2;
     public int ilegalMail = 1, legalMail = 1, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
     List<GameObject> activeMailBox = new List<GameObject>();
     public List<GameObject> activeMailBoxWithPossibleDelivers = new List<GameObject>();
 
     public List<GameObject> activeMailBoxWhite = new List<GameObject>();
 
-    public List<GameObject> activeMailBoxBlack= new List<GameObject>();
+    public List<GameObject> activeMailBoxBlack = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
+        //mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
 
 
         gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
@@ -32,18 +33,18 @@ public class GameZoneManager : MonoBehaviour
         //GetInactiveInRadius();
         mailBox = GameObject.FindGameObjectsWithTag("MailBox");
 
-        GetInactiveInRadius(60 * gamemanager.GetDay());
+        GetInactiveInRadius(45 * gamemanager.GetDay());
         for (int i = 0; i < mailBox.Length; i++)
         {
             if (mailBox[i].GetComponent<MailBox>().IsInArea)
             {
-                activeMailBox.Add(mailBox[i]);                
+                activeMailBox.Add(mailBox[i]);
             }
         }
 
         Debug.Log("Buzones activos: " + activeMailBox.Count);
 
-        for(int i = 0; i < activeMailBox.Count; i++)
+        for (int i = 0; i < activeMailBox.Count; i++)
         {
             if (activeMailBox[i].GetComponent<MailBox>().IsWhiteMail)
             {
@@ -57,30 +58,30 @@ public class GameZoneManager : MonoBehaviour
             }
         }
 
-        if(gamemanager.GetDay() >= 3)
+        if (gamemanager.GetDay() >= 3)
         {
-            if(ilegalMail > 0)
+            if (ilegalMail > 0)
             {
                 NumberOfILegalMailToDeliver = gamemanager.GetTotalBlackMail() / ilegalMail;
                 auxTotalOfMailsBlack = gamemanager.GetTotalBlackMail();
             }
-                
-        }         
-        
-        NumberOfLegalMailToDeliver = gamemanager.GetTotalWhiteMail()/ legalMail;
+
+        }
+
+        NumberOfLegalMailToDeliver = gamemanager.GetTotalWhiteMail() / legalMail;
         auxTotalOfMailsWhite = gamemanager.GetTotalWhiteMail();
         //Debug.Log(NumberOfLegalMailToDeliver + " " + gamemanager.GetTotalWhiteMail() + " " + legalMail);
 
         for (int i = 0; i < activeMailBox.Count; i++)
         {
             if (activeMailBox[i].GetComponent<MailBox>().IsWhiteMail)
-            {                
-                
-                if(auxTotalOfMailsWhite > 0)
+            {
+
+                if (auxTotalOfMailsWhite > 0)
                 {
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfLegalMailToDeliver;
                     activeMailBox[i].GetComponent<MailBox>().SetBool();
-                   
+
 
 
                 }
@@ -92,12 +93,12 @@ public class GameZoneManager : MonoBehaviour
             }
             else
             {
-                
-                if(auxTotalOfMailsBlack > 0)
+
+                if (auxTotalOfMailsBlack > 0)
                 {
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfILegalMailToDeliver;
                     activeMailBox[i].GetComponent<MailBox>().SetBool();
-                    
+
 
                 }
                 else
@@ -105,7 +106,7 @@ public class GameZoneManager : MonoBehaviour
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = 0;
                 }
                 auxTotalOfMailsBlack -= auxTotalOfMailsBlack;
-            }           
+            }
 
         }
 
@@ -124,7 +125,7 @@ public class GameZoneManager : MonoBehaviour
                 {
                     activeMailBoxBlack.Add(activeMailBox[i]);
                 }
-                
+
                 activeMailBoxWithPossibleDelivers.Add(activeMailBox[i]);
             }
 
@@ -132,17 +133,20 @@ public class GameZoneManager : MonoBehaviour
         }
 
 
-        for (int i = 0; i < NumberOfILegalMailToDeliver; i++)
+        for (int i = 0; i < activeMailBoxBlack.Count; i++)
         {
             Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
-            mailManager.letterList.Add(letter);
+            EditorUtility.SetDirty(letter);
+            mailManager.AddLetter(letter);
 
         }
 
-        for (int i = 0; i < NumberOfLegalMailToDeliver; i++)
+        for (int i = 0; i < activeMailBoxWhite.Count; i++)
         {
             Letter letter = new Letter(0, activeMailBoxWhite[Random.Range(0, activeMailBoxWhite.Count)]);
-            mailManager.letterList.Add(letter);
+            //EditorUtility.SetDirty(letter);
+
+            mailManager.AddLetter(letter);
         }
 
         //exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
@@ -158,21 +162,20 @@ public class GameZoneManager : MonoBehaviour
     {
         foreach (GameObject obj in objs)
         {
-            if (Vector3.Distance(transform.position, obj.transform.position) < _radius)
-            {
+            if (Vector3.Distance(transform.position, obj.transform.position) < _radius){
                 obj.SetActive(false);
 
             }
-                
+
         }
 
         foreach (GameObject mail in mailBox)
         {
-            Debug.Log("Buzon " + mail.name + " posicion: " + Vector3.Distance(transform.position, mail.transform.position) + " radio "+ _radius.ToString());
+            //Debug.Log("Buzon " + mail.name + " posicion: " + Vector3.Distance(transform.position, mail.transform.position) + " radio "+ _radius.ToString());
             if (Vector3.Distance(transform.position, mail.transform.position) < _radius)
             {
 
-                
+
                 mail.GetComponent<MailBox>().IsInArea = true;
 
             }
@@ -180,3 +183,4 @@ public class GameZoneManager : MonoBehaviour
         }
     }
 }
+
