@@ -13,6 +13,7 @@ public class Gamemanager : MonoBehaviour
 
     //CardsReward cardsReward;
 
+    public int playerSpeed = 2;
 
     GameZoneManager gameZoneManager;
     
@@ -91,13 +92,19 @@ public class Gamemanager : MonoBehaviour
             if (GetReputation() >= 100  && countPunish)
             {
                 Debug.Log("Castigo!!");
-                punish++;                
-                taxProp = 0;
+                punish++; 
+                if(taxProp >= 100)
+                {
+                  taxProp = 0;
+                }
                 countPunish = false;
             }
             else
             {
-                taxProp = 0;
+                if (taxProp >= 100)
+                {
+                    taxProp = 0;
+                }
             }
             //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
             _ui.SetActive(false);

@@ -1,33 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System
+using System;
 
 public class CardsRewards : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> WhiteMailSoldList;
-    private List<GameObject> BlackMailSoldList;
 
-    Gamemanager gamemanager;
+    /*Rango1: Segunda Bolsa aumenta cartas
+     * rango2 : 3er bolsa & bicicleta
+     * rango3: Motoneta
+     * rango4 Auto
+    */
+    Gamemanager gameManager;
+    GameObject[] upGranded;
+    public int upgrade = 0;
+
+    public int bikeSpeed = 5;
+    public int motorBikeSpeed = 10;
+    public int CarSpeed = 20;
+
 
     private void Start()
     {
-        WhiteMailSoldList = new List<GameObject>();
-        BlackMailSoldList = new List<GameObject>();
-
-        gamemanager = GameObject.Find("GameManager").GetComponent<Gamemanager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<Gamemanager>();
     }
-
-    private void Update()
+    //Mejoras de Velocidad
+    void BikeUpgrade()
     {
-        //var x = gamemanager.GetTotalWhiteMail();
-
         
-
-        for(int i = 0; i < Whitemail; i++ )
-        {
-
-        }
+        gameManager.playerSpeed = bikeSpeed;
     }
+    void motorBikeUpgrade()
+    {
+        gameManager.playerSpeed = motorBikeSpeed;      
+    }
+    void CarUpgrade()
+    {
+        gameManager.playerSpeed = CarSpeed;
+    }
+
+    //Mejoras de Capacidad
 }
