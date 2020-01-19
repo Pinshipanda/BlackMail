@@ -14,7 +14,8 @@ public class MapController : MonoBehaviour
     public float Xmove = 2 , Zmove = 2, ZoomSpeed = 2;
     public float speed = 3, speedZoom = 2;
 
-
+    float zoom = 80.0f;
+    Camera micam;
     void Start()
     {
         activateMap = false;
@@ -25,8 +26,8 @@ public class MapController : MonoBehaviour
         pausa.DOAnchorPos(new Vector2(0, 1500), 0.25f);
         settingsPanel.DOAnchorPos(new Vector2(0, -1500), 0.25f);
 
-        camaraMap.GetComponent<Camera>().fieldOfView = 80f;
-
+        micam=camaraMap.GetComponent<Camera>();
+        micam.orthographicSize = zoom;
     }
 
     // Update is called once per frame
@@ -133,16 +134,20 @@ public class MapController : MonoBehaviour
 
             }
 
-            if(Input.GetKey(KeyCode.E) && camaraMap.GetComponent<Camera>().fieldOfView >= 30)
+            if(Input.GetKey(KeyCode.E))
             {
-                camaraMap.GetComponent<Camera>().fieldOfView -= ZoomSpeed * speedZoom;
-
+                zoom -= ZoomSpeed * speedZoom;
+                if (zoom < 20.0f)
+                    zoom = 20.0f;
+                micam.orthographicSize = zoom;
             }
 
-            if (Input.GetKey(KeyCode.Q) && camaraMap.GetComponent<Camera>().fieldOfView <= 90 )
+            if (Input.GetKey(KeyCode.Q) )
             {
-                camaraMap.GetComponent<Camera>().fieldOfView += ZoomSpeed * speedZoom;
-
+                zoom += ZoomSpeed * speedZoom;
+                if (zoom > 80.0f)
+                    zoom = 80.0f;
+                micam.orthographicSize = zoom;
             }
         }
     }

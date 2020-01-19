@@ -41,7 +41,6 @@ public class SettingsScripts : MonoBehaviour
     public void VolumeSettings(float volumenValue)
     {
         audioMixer.volume = volumenValue;
-
     }
 
     public void setQuality(int qualityIndex)
