@@ -18,10 +18,12 @@ public class Gamemanager : MonoBehaviour
     
     public Slider whiteSlider, blackSlider;
     public Text whiteText, blackText;
-    public GameObject _ui;
+    public GameObject _ui, _uiMenu;
 
     void Awake()
     {
+        _ui.SetActive(false);
+        
         TimeToGo = time;
         DontDestroyOnLoad(this.gameObject);
         if (FindObjectsOfType(GetType()).Length > 1)
@@ -30,12 +32,17 @@ public class Gamemanager : MonoBehaviour
 
         }
 
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "CardScene")
+        _ui.SetActive(false);
+       
+
+        if (SceneManager.GetActiveScene().name == "CardScene")
         {
             whiteText.text = whiteSlider.value.ToString();
             whiteSlider.minValue = minwhitCardAmount;
@@ -46,6 +53,7 @@ public class Gamemanager : MonoBehaviour
             blackSlider.maxValue = maxBlackCardAmount;
         }
 
+        
         
     }
 
@@ -101,6 +109,7 @@ public class Gamemanager : MonoBehaviour
             }
             //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
             _ui.SetActive(false);
+            //_uiMenu.SetActive(false);
             //amountBlackCurrencyCardDelivered += cardsReward.GetBlackCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas blancas
             //amountWhiteCurrencyCardDeliverd += cardsReward.GetWhiteCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas negras
 
@@ -224,4 +233,6 @@ public class Gamemanager : MonoBehaviour
        
         //SetMoreCurrent(setmoney);
     }
+
+
 }
