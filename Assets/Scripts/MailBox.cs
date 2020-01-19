@@ -7,8 +7,10 @@ public class MailBox : MonoBehaviour
 { 
         // Start is called before the first frame update
 
-        public bool IsInArea = false, IsWhiteMail = true, HaveMail = false;
+        public bool IsInArea = false, IsWhiteMail = true, HaveMail = false, IsLetter = false;
         public int HowManyMails;
+
+        public GameObject _valiza;    
 
         void Start()
         {
@@ -18,6 +20,9 @@ public class MailBox : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
+            
+            _valiza.SetActive(IsLetter);
+            
 
         }
 
@@ -30,5 +35,8 @@ public class MailBox : MonoBehaviour
         {
             return HaveMail;
         }
+
+
+   
     
 }

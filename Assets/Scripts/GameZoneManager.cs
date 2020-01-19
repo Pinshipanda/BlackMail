@@ -13,6 +13,8 @@ public class GameZoneManager : MonoBehaviour
     public MailManager mailManager;
     public Button exit;
 
+    public GameObject objletter;
+
     public float distance = 2;
     public int ilegalMail = 1, legalMail = 1, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
     List<GameObject> activeMailBox = new List<GameObject>();
@@ -137,8 +139,11 @@ public class GameZoneManager : MonoBehaviour
 
         for (int i = 0; i < activeMailBoxBlack.Count; i++)
         {
-            Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
-            EditorUtility.SetDirty(letter);
+            //Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
+            //EditorUtility.SetDirty(letter);
+            Letter letter = Instantiate(objletter).GetComponent<Letter>();
+            letter.Ini(0, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
+            activeMailBoxBlack[i].GetComponent<MailBox>().IsLetter = true;
             mailManager.AddLetter(letter);
             activeMailBoxTotal.Add(activeMailBoxBlack[i]);
 
@@ -146,9 +151,10 @@ public class GameZoneManager : MonoBehaviour
 
         for (int i = 0; i < activeMailBoxWhite.Count; i++)
         {
-            Letter letter = new Letter(0, activeMailBoxWhite[Random.Range(0, activeMailBoxWhite.Count)]);
+            Letter letter = Instantiate(objletter).GetComponent<Letter>();
+            letter.Ini(0, activeMailBoxWhite[Random.Range(0, activeMailBoxWhite.Count)]);
             //EditorUtility.SetDirty(letter);
-
+            activeMailBoxWhite[i].GetComponent<MailBox>().IsLetter = true;
             mailManager.AddLetter(letter);
             activeMailBoxTotal.Add(activeMailBoxWhite[i]);
         }

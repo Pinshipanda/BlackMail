@@ -37,15 +37,17 @@ public class MailManager : MonoBehaviour
             {
                 whiteLettersDelivered++;
                 gamemanager.SetMoreCurrencyWhite();
+                
+                StartCoroutine(SendToMailbox(0, _mailbox,letterList[tempIndex].gameObject));
                 letterList.RemoveAt(tempIndex);
-                StartCoroutine(SendToMailbox(0, _mailbox));
             }
             else if (letterList[tempIndex].type == 1)//negra
             {
                 blackLettersDelivered++;
                 gamemanager.SetMoreCurrencyBlack();
+                StartCoroutine(SendToMailbox(0, _mailbox, letterList[tempIndex].gameObject));
                 letterList.RemoveAt(tempIndex);
-                StartCoroutine(SendToMailbox(1, _mailbox));
+               // StartCoroutine(SendToMailbox(1, _mailbox));
             }  
         }   
     }
@@ -66,7 +68,7 @@ public class MailManager : MonoBehaviour
         {
             if (other.gameObject.tag == "MailBox")
             {
-                Debug.Log("Con el Buzon");
+                
                 // Find the first letter for this mailbox and deliver it.
                 SearchLetters(other.gameObject);
                 canDeliverLetter = false;
@@ -79,11 +81,11 @@ public class MailManager : MonoBehaviour
         }
     }
 
-    IEnumerator SendToMailbox(int _type, GameObject _mailbox)
+    IEnumerator SendToMailbox(int _type, GameObject _mailbox, GameObject go)
     {
-        float timeToWait = 1f;
+        float timeToWait = 0.1f;
         //Debug.Log(_typeList.Count);
-        GameObject go = new GameObject();
+        //GameObject go = new GameObject();
 
         switch (_type)
         {
@@ -111,10 +113,12 @@ public class MailManager : MonoBehaviour
 
             go.transform.DOJump(_mailbox.transform.position, 2f, 1, 1f);
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(1f);
 
             go.SetActive(false);
-        }     
+        }
+
+        Debug.Log("Con el Buzon");
     }
 
     public void AddLetter(Letter _letter)

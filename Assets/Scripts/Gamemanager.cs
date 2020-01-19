@@ -125,8 +125,8 @@ public class Gamemanager : MonoBehaviour
             amountBlackCardDelivered = mailManager.whiteLettersDelivered; // este regresa la cantidad de cartas blancas entregadas
             amountWhiteCardDeliverd = mailManager.blackLettersDelivered;// este regresa la canitdad de cartas negras entregradas
 
-            gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
-            gameZoneManager.GetInactiveInRadius(radius * GetDay());
+           // gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
+            //gameZoneManager.GetInactiveInRadius(radius * GetDay());
 
             actualDeliveredTotalMail = amountWhiteCardDeliverd + amountBlackCardDelivered;
             currencyDuringGame = amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
@@ -219,7 +219,7 @@ public class Gamemanager : MonoBehaviour
     {
         totalWhiteCard = (int)(whiteSlider.value);
         totalBlackCard = (int)(blackSlider.value);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public int GetTotalBlackMail()

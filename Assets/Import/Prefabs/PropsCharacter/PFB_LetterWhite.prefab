@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4471507497501701588}
   - component: {fileID: 4471507497502504436}
   - component: {fileID: 4471507497503471412}
-  - component: {fileID: 1705133362136743907}
+  - component: {fileID: 1290029082959192462}
   m_Layer: 0
   m_Name: PFB_LetterWhite
   m_TagString: Untagged
@@ -78,17 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1705133362136743907
-MeshCollider:
+--- !u!114 &1290029082959192462
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4471507497501469172}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 302b02869f20b934ea86b86e830432f0, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a56ecd3b04c020499106c73da659209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  mailbox: {fileID: 0}
