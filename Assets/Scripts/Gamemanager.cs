@@ -146,7 +146,7 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
-    public float GetCurrent()
+    public float GetCurrency()
     {
         return actualCurrent;
     }
@@ -156,9 +156,9 @@ public class Gamemanager : MonoBehaviour
         actualCurrent += 100;
     }
 
-    public void SetMoreCurrency()
+    public void SetMoreCurrencyBlack()
     {
-        actualCurrent += 100;
+        actualCurrent += 200;
     }
 
     public float GetCurrentGoal()

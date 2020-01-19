@@ -11,9 +11,14 @@ public class MailManager : MonoBehaviour
     public int blackLettersDelivered;
 
     private bool canDeliverLetter = true;
-    //public Gamemanager gamemanager;
+    public Gamemanager gamemanager;
 
-   
+
+    private void Start()
+    {
+        gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
+    }
+
     void SearchLetters(GameObject _mailbox)
     {
         int tempIndex = -1;
@@ -28,15 +33,17 @@ public class MailManager : MonoBehaviour
 
         if (tempIndex != -1)
         {
-            if (letterList[tempIndex].type == 0)
+            if (letterList[tempIndex].type == 0) //blanca
             {
                 whiteLettersDelivered++;
+                gamemanager.SetMoreCurrencyWhite();
                 letterList.RemoveAt(tempIndex);
                 StartCoroutine(SendToMailbox(0, _mailbox));
             }
-            else if (letterList[tempIndex].type == 1)
+            else if (letterList[tempIndex].type == 1)//negra
             {
                 blackLettersDelivered++;
+                gamemanager.SetMoreCurrencyBlack();
                 letterList.RemoveAt(tempIndex);
                 StartCoroutine(SendToMailbox(1, _mailbox));
             }  
