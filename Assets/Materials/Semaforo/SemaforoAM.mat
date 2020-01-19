@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RgbColor:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4213a4b7111630949af7988e851a340c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _node_2642:
