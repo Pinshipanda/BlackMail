@@ -210,7 +210,7 @@ public class Gamemanager : MonoBehaviour
     {
         totalWhiteCard = (int)(whiteSlider.value);
         totalBlackCard = (int)(blackSlider.value);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public int GetTotalBlackMail()
