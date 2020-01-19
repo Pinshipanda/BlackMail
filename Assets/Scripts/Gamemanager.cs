@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
 
-    public int actualDay = 1, minwhitCardAmount = 1, maxwhitCardAmount = 25, minBlackCardAmount = 1, maxBlackCardAmount = 25, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
-    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 5, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
+    public int actualDay = 1, minwhitCardAmount = 10, maxwhitCardAmount = 35, minBlackCardAmount = 10, maxBlackCardAmount = 35, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
+    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 15, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
     bool isTimeForABlackCard = false, setTime = false, countPunish = false;
 
     //CardsReward cardsReward;

@@ -12,8 +12,9 @@ public class GameZoneManager : MonoBehaviour
     public Button exit;
 
     public float distance= 2;
-    public int ilegalMail = 0, legalMail = 0, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0;
+    public int ilegalMail = 0, legalMail = 0, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
     List<GameObject> activeMailBox = new List<GameObject>();
+    public List<GameObject> activeMailBoxWithPossibleDelivers = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class GameZoneManager : MonoBehaviour
         //GetInactiveInRadius();
         mailBox = GameObject.FindGameObjectsWithTag("MailBox");
 
-        GetInactiveInRadius(5 * gamemanager.GetDay());
+        GetInactiveInRadius(15 * gamemanager.GetDay());
         for (int i = 0; i < mailBox.Length; i++)
         {
             if (mailBox[i].GetComponent<MailBox>().IsInArea)
@@ -54,21 +55,62 @@ public class GameZoneManager : MonoBehaviour
         if(gamemanager.GetDay() >= 3)
         {
             if(ilegalMail > 0)
+            {
                 NumberOfILegalMailToDeliver = gamemanager.GetTotalBlackMail() / ilegalMail;
-        }       
+                auxTotalOfMailsBlack = gamemanager.GetTotalBlackMail();
+            }
+                
+        }         
         
         NumberOfLegalMailToDeliver = gamemanager.GetTotalWhiteMail()/ legalMail;
+        auxTotalOfMailsWhite = gamemanager.GetTotalWhiteMail();
         //Debug.Log(NumberOfLegalMailToDeliver + " " + gamemanager.GetTotalWhiteMail() + " " + legalMail);
 
         for (int i = 0; i < activeMailBox.Count; i++)
         {
             if (activeMailBox[i].GetComponent<MailBox>().IsWhiteMail)
-            {
-                activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfLegalMailToDeliver;
+            {                
+                
+                if(auxTotalOfMailsWhite > 0)
+                {
+                    activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfLegalMailToDeliver;
+                    activeMailBox[i].GetComponent<MailBox>().SetBool();
+
+
+                }
+                else
+                {
+                    activeMailBox[i].GetComponent<MailBox>().HowManyMails = 0;
+                }
+                auxTotalOfMailsWhite -= NumberOfLegalMailToDeliver;
             }
             else
             {
-                activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfLegalMailToDeliver;
+                
+                if(auxTotalOfMailsBlack > 0)
+                {
+                    activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfILegalMailToDeliver;
+                    activeMailBox[i].GetComponent<MailBox>().SetBool();
+
+                }
+                else
+                {
+                    activeMailBox[i].GetComponent<MailBox>().HowManyMails = 0;
+                }
+                auxTotalOfMailsBlack -= auxTotalOfMailsBlack;
+            }
+           
+        }
+
+        //activeMailBoxWithPossibleDelivers = GameObject.FindGameObjectsWithTag("MailBox").
+        Debug.Log(activeMailBox.Count);
+        for (int i = 0; i < activeMailBox.Count; i++)
+        {
+            Debug.Log(activeMailBox[i].GetComponent<MailBox>().HaveMail);
+            if (activeMailBox[i].GetComponent<MailBox>().GetBool())
+            {
+                
+                activeMailBoxWithPossibleDelivers.Add(activeMailBox[i]);
             }
         }
 

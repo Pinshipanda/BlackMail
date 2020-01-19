@@ -2433,6 +2433,31 @@ PrefabInstance:
       propertyPath: blackText
       value: 
       objectReference: {fileID: 346315946}
+    - target: {fileID: 6066309729855127250, guid: 62df51df550f2274bbfc5984df01198e,
+        type: 3}
+      propertyPath: minwhitCardAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066309729855127250, guid: 62df51df550f2274bbfc5984df01198e,
+        type: 3}
+      propertyPath: maxwhitCardAmount
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066309729855127250, guid: 62df51df550f2274bbfc5984df01198e,
+        type: 3}
+      propertyPath: minBlackCardAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066309729855127250, guid: 62df51df550f2274bbfc5984df01198e,
+        type: 3}
+      propertyPath: maxBlackCardAmount
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066309729855127250, guid: 62df51df550f2274bbfc5984df01198e,
+        type: 3}
+      propertyPath: radius
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8580933419933741989, guid: 62df51df550f2274bbfc5984df01198e,
         type: 3}
       propertyPath: m_LocalPosition.x
