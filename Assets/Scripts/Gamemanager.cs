@@ -8,18 +8,17 @@ public class Gamemanager : MonoBehaviour
 {
 
     public int actualDay = 1, minwhitCardAmount = 10, maxwhitCardAmount = 35, minBlackCardAmount = 10, maxBlackCardAmount = 35, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
-    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 15, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
+    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 50, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
     bool isTimeForABlackCard = false, setTime = false, countPunish = false;
 
-    //CardsReward cardsReward;
+    MailManager mailManager;
 
     public int playerSpeed = 2;
 
     GameZoneManager gameZoneManager;
 
-    
-    
-    
+       
+        
     public Slider whiteSlider, blackSlider;
     public Text whiteText, blackText;
     public GameObject _ui;
@@ -72,8 +71,7 @@ public class Gamemanager : MonoBehaviour
 
            
             if (!setTime)
-            {
-                
+            {                
                 actualCurrent += currencyDuringGame;
                 currencyDuringGame = 0;
                 TimeToGo = time / actualDay;
@@ -91,7 +89,7 @@ public class Gamemanager : MonoBehaviour
                 
             }
         }
-        else if(SceneManager.GetActiveScene().name == "_Game")
+        else if(SceneManager.GetActiveScene().name == "SampleScene")
         {            
 
             if (GetReputation() >= 100  && countPunish)
@@ -111,18 +109,18 @@ public class Gamemanager : MonoBehaviour
                     taxProp = 0;
                 }
             }
-            //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
+            mailManager = GameObject.Find("Player").GetComponent<MailManager>();
             _ui.SetActive(false);
             //amountBlackCurrencyCardDelivered += cardsReward.GetBlackCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas blancas
             //amountWhiteCurrencyCardDeliverd += cardsReward.GetWhiteCurrencyMailDeliverd(); // este regresa la cantidad de dinero juntada en las cartas negras
 
-            //amountBlackCardDelivered += cardsReward.GetBlackMailDeliverd(); // este regresa la cantidad de cartas blancas entregadas
-            //amountWhiteCardDeliverd += cardsReward.GetWhiteMailDeliverd();// este regresa la canitdad de cartas negras entregradas
+            amountBlackCardDelivered = mailManager.blackLettersDelivered; // este regresa la cantidad de cartas blancas entregadas
+            amountWhiteCardDeliverd = mailManager.whiteLettersDelivered;// este regresa la canitdad de cartas negras entregradas
 
            
 
             actualDeliveredTotalMail = amountWhiteCardDeliverd + amountBlackCardDelivered;
-            currencyDuringGame += amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
+            currencyDuringGame = amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
 
             counter += Time.deltaTime;
             if (counter >= TimeToGo)
@@ -130,7 +128,7 @@ public class Gamemanager : MonoBehaviour
                 Time.timeScale = 0;
                 Debug.Log("TimeOver!!!");
 
-            }else if(currencyDuringGame >= currentGoal){
+            }else if(actualDeliveredTotalMail >= (GetTotalBlackMail()+GetTotalWhiteMail())){
                 
                 Time.timeScale = 0;
                 Debug.Log("You win");

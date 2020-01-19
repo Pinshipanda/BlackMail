@@ -10,12 +10,10 @@ public class MailManager : MonoBehaviour
     public int whiteLettersDelivered;
     public int blackLettersDelivered;
 
-    public GameObject whitePrefab;
-    public GameObject blackPrefab;
-
     private bool canDeliverLetter = true;
     //public Gamemanager gamemanager;
 
+   
     void SearchLetters(GameObject _mailbox)
     {
         int tempIndex = -1;

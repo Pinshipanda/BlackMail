@@ -9,6 +9,7 @@ public class GameZoneManager : MonoBehaviour
     GameObject[] objs, mailBox;
     Gamemanager gamemanager;
 
+    MailManager mailManager;
     public Button exit;
 
     public float distance= 2;
@@ -16,16 +17,20 @@ public class GameZoneManager : MonoBehaviour
     List<GameObject> activeMailBox = new List<GameObject>();
     public List<GameObject> activeMailBoxWithPossibleDelivers = new List<GameObject>();
 
+    public List<GameObject> activeMailBoxWhite = new List<GameObject>();
+
+    public List<GameObject> activeMailBoxBlack= new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
 
 
         gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
         objs = GameObject.FindGameObjectsWithTag("Obstaculos");
         //GetInactiveInRadius();
-        mailBox = GameObject.FindGameObjectsWithTag("MailBox");
+        mailBox = GameObject.FindGameObjectsWithTag("Mailbox");
 
         GetInactiveInRadius(15 * gamemanager.GetDay());
         for (int i = 0; i < mailBox.Length; i++)
@@ -75,6 +80,7 @@ public class GameZoneManager : MonoBehaviour
                 {
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfLegalMailToDeliver;
                     activeMailBox[i].GetComponent<MailBox>().SetBool();
+                   
 
 
                 }
@@ -91,6 +97,7 @@ public class GameZoneManager : MonoBehaviour
                 {
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = NumberOfILegalMailToDeliver;
                     activeMailBox[i].GetComponent<MailBox>().SetBool();
+                    
 
                 }
                 else
@@ -98,8 +105,8 @@ public class GameZoneManager : MonoBehaviour
                     activeMailBox[i].GetComponent<MailBox>().HowManyMails = 0;
                 }
                 auxTotalOfMailsBlack -= auxTotalOfMailsBlack;
-            }
-           
+            }           
+
         }
 
         //activeMailBoxWithPossibleDelivers = GameObject.FindGameObjectsWithTag("MailBox").
@@ -109,9 +116,33 @@ public class GameZoneManager : MonoBehaviour
             Debug.Log(activeMailBox[i].GetComponent<MailBox>().HaveMail);
             if (activeMailBox[i].GetComponent<MailBox>().GetBool())
             {
+                if (activeMailBox[i].GetComponent<MailBox>().IsWhiteMail)
+                {
+                    activeMailBoxWhite.Add(activeMailBox[i]);
+                }
+                else
+                {
+                    activeMailBoxBlack.Add(activeMailBox[i]);
+                }
                 
                 activeMailBoxWithPossibleDelivers.Add(activeMailBox[i]);
             }
+
+
+        }
+
+
+        for (int i = 0; i < NumberOfILegalMailToDeliver; i++)
+        {
+            Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
+            mailManager.letterList.Add(letter);
+
+        }
+
+        for (int i = 0; i < NumberOfLegalMailToDeliver; i++)
+        {
+            Letter letter = new Letter(0, activeMailBoxWhite[Random.Range(0, activeMailBoxWhite.Count)]);
+            mailManager.letterList.Add(letter);
         }
 
         exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);

@@ -1,0 +1,16 @@
+# Blender v2.80 (sub 75) OBJ File: 'BlackLetter_MSH.blend'
+# www.blender.org
+mtllib BlackLetter_MSH.mtl
+o MSH_WhiteLetter_Plane.001
+v -0.217832 0.000000 0.118972
+v 0.232168 0.000000 0.118972
+v -0.217832 0.000000 -0.106028
+v 0.232168 0.000000 -0.106028
+vt 0.765613 0.170604
+vt 0.765613 0.045047
+vt 0.827355 0.045047
+vt 0.827355 0.170604
+vn 0.0000 1.0000 0.0000
+usemtl Material
+s off
+f 1/1/1 2/2/1 4/3/1 3/4/1
