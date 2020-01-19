@@ -8,7 +8,7 @@ public class Gamemanager : MonoBehaviour
 {
 
     public int actualDay = 1, minwhitCardAmount = 10, maxwhitCardAmount = 35, minBlackCardAmount = 10, maxBlackCardAmount = 35, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
-    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 50, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
+    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 500, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
     bool isTimeForABlackCard = false, setTime = false, countPunish = false;
 
     MailManager mailManager;
@@ -78,6 +78,7 @@ public class Gamemanager : MonoBehaviour
                 exp += (int)(actualCurrent) / 10;
                 if(exp >= expRango)
                 {
+                    rango++;
                     exp = 0;
                     expRango += 50;
                 }
@@ -217,6 +218,11 @@ public class Gamemanager : MonoBehaviour
         return totalBlackCard;
     }
 
+
+    public int GetRango()
+    {
+        return rango;
+    }
 
     public int GetTotalWhiteMail()
     {

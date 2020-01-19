@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Letter
+public class Letter :MonoBehaviour
 {
     public int type;
     public GameObject mailbox;

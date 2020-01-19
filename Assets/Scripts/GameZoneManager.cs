@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class GameZoneManager : MonoBehaviour
 {
 
-    GameObject[] objs, mailBox;
+    public GameObject[] objs, mailBox;
     Gamemanager gamemanager;
 
     MailManager mailManager;
     public Button exit;
 
     public float distance= 2;
-    public int ilegalMail = 0, legalMail = 0, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
+    public int ilegalMail = 1, legalMail = 1, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
     List<GameObject> activeMailBox = new List<GameObject>();
     public List<GameObject> activeMailBoxWithPossibleDelivers = new List<GameObject>();
 
@@ -30,9 +30,9 @@ public class GameZoneManager : MonoBehaviour
         gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
         objs = GameObject.FindGameObjectsWithTag("Obstaculos");
         //GetInactiveInRadius();
-        mailBox = GameObject.FindGameObjectsWithTag("Mailbox");
+        mailBox = GameObject.FindGameObjectsWithTag("MailBox");
 
-        GetInactiveInRadius(15 * gamemanager.GetDay());
+        GetInactiveInRadius(60 * gamemanager.GetDay());
         for (int i = 0; i < mailBox.Length; i++)
         {
             if (mailBox[i].GetComponent<MailBox>().IsInArea)
@@ -145,13 +145,13 @@ public class GameZoneManager : MonoBehaviour
             mailManager.letterList.Add(letter);
         }
 
-        exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
+        //exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetInactiveInRadius(distance);
+        //GetInactiveInRadius(distance);
     }
 
     public void GetInactiveInRadius(float _radius)
@@ -168,8 +168,11 @@ public class GameZoneManager : MonoBehaviour
 
         foreach (GameObject mail in mailBox)
         {
+            Debug.Log("Buzon " + mail.name + " posicion: " + Vector3.Distance(transform.position, mail.transform.position) + " radio "+ _radius.ToString());
             if (Vector3.Distance(transform.position, mail.transform.position) < _radius)
             {
+
+                
                 mail.GetComponent<MailBox>().IsInArea = true;
 
             }
