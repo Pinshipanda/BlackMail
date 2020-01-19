@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Carro
+  - Obstaculos
+  - Gamemanager
+  - MailBox
   layers:
   - Default
   - TransparentFX
@@ -15,6 +17,7 @@ TagManager:
   - 
   - 
   - Vehiculo
+  - PostProcess
   - 
   - 
   - 
