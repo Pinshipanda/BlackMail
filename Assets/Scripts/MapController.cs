@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MapController : MonoBehaviour
 {
@@ -109,6 +110,11 @@ public class MapController : MonoBehaviour
             activePanel = false;
 
         }
+    }
+
+    public void exitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void CameraMovement()
