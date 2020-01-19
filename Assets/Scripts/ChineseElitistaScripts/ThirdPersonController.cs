@@ -27,7 +27,8 @@ public class ThirdPersonController : MonoBehaviour
     float animspeed;
     void Start()
     {
-        VelMov = GameObject.Find("GameManager").GetComponent<Gamemanager>().playerSpeed;
+        VelMov = 2f;
+            // GameObject.Find("GameManager").GetComponent<Gamemanager>().playerSpeed;
         rb = GetComponent<Rigidbody>();
         Col = GetComponent<Collider>();
         walkSpeed = VelMov;

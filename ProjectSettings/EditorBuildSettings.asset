@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/CardScene.unity
     guid: 1d5a53863a5383541982102f1b209323
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/b2aa6b5ae3628424ba00e5ba8e06093b
-    guid: b2aa6b5ae3628424ba00e5ba8e06093b
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/_Game.unity
     guid: 04c1c13147672f74ab8762aae48ce570
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 7218b7273294f334eab70b3f2b4a784c
   m_configObjects: {}
