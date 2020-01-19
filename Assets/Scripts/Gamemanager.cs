@@ -7,14 +7,18 @@ using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
 
-    public int actualDay = 1, minwhitCardAmount = 1, maxwhitCardAmount = 25, minBlackCardAmount = 1, maxBlackCardAmount = 25, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
-    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 10, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
+    public int actualDay = 1, minwhitCardAmount = 10, maxwhitCardAmount = 35, minBlackCardAmount = 10, maxBlackCardAmount = 35, totalBlackCard, totalWhiteCard, punish = 0, rango = 1, exp = 0, expRango = 100, amountBlackCardDelivered, amountWhiteCardDeliverd, actualDeliveredTotalMail = 0;
+    public float actualCurrent = 0, currencyDuringGame =0, currentGoal = 100, reputacion = 0, taxProp = 0, TimeToGo, counter = 0,  radius = 15, time = 300, amountWhiteCurrencyCardDeliverd, amountBlackCurrencyCardDelivered;
     bool isTimeForABlackCard = false, setTime = false, countPunish = false;
 
     //CardsReward cardsReward;
 
+    public int playerSpeed = 2;
 
     GameZoneManager gameZoneManager;
+
+    
+    
     
     public Slider whiteSlider, blackSlider;
     public Text whiteText, blackText;
@@ -62,6 +66,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "CardScene")
         {
+
             GetDay();
             _ui.SetActive(true);
             whiteText.text = ((int)(whiteSlider.value)).ToString();
@@ -76,6 +81,7 @@ public class Gamemanager : MonoBehaviour
            
             if (!setTime)
             {
+                
                 actualCurrent += currencyDuringGame;
                 currencyDuringGame = 0;
                 TimeToGo = time / actualDay;
@@ -94,18 +100,24 @@ public class Gamemanager : MonoBehaviour
             }
         }
         else if(SceneManager.GetActiveScene().name == "_Game")
-        {
-            
+        {            
+
             if (GetReputation() >= 100  && countPunish)
             {
                 Debug.Log("Castigo!!");
-                punish++;                
-                taxProp = 0;
+                punish++; 
+                if(taxProp >= 100)
+                {
+                  taxProp = 0;
+                }
                 countPunish = false;
             }
             else
             {
-                taxProp = 0;
+                if (taxProp >= 100)
+                {
+                    taxProp = 0;
+                }
             }
             //cardsReward = GameObject.Find("Player").GetComponent<MailManager>();
             _ui.SetActive(false);
@@ -116,8 +128,7 @@ public class Gamemanager : MonoBehaviour
             //amountBlackCardDelivered += cardsReward.GetBlackMailDeliverd(); // este regresa la cantidad de cartas blancas entregadas
             //amountWhiteCardDeliverd += cardsReward.GetWhiteMailDeliverd();// este regresa la canitdad de cartas negras entregradas
 
-            gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
-            gameZoneManager.GetInactiveInRadius(radius * GetDay());
+           
 
             actualDeliveredTotalMail = amountWhiteCardDeliverd + amountBlackCardDelivered;
             currencyDuringGame += amountBlackCurrencyCardDelivered + amountWhiteCurrencyCardDeliverd;
@@ -201,7 +212,7 @@ public class Gamemanager : MonoBehaviour
         
        // amountBlackCardDelivered = cardsReward.GetBlackMailDelivered();
        taxProp = (amountBlackCardDelivered / totalBlackCard) * 100;
-        Debug.Log(taxProp);
+       //Debug.Log(taxProp);
         return taxProp;
     }
 
@@ -229,6 +240,8 @@ public class Gamemanager : MonoBehaviour
         actualDay++;
         counter = 0;
         float setmoney = (GetCurrent() * 2);
+        GetMaxBlackCard();
+        GetMaxWhiteCard();
         SceneManager.LoadScene(0);
        
         //SetMoreCurrent(setmoney);
