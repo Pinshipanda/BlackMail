@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class FP_NPCpatrol : MonoBehaviour
 {
-    [SerializeField]
-    bool _patrolWait;
+    public bool _patrolWait;
 
     [SerializeField]
     float _totalwaitTime = 3f;
@@ -21,7 +20,7 @@ public class FP_NPCpatrol : MonoBehaviour
 
     int _currentPatrolIndex;
     bool _travelling;
-    bool _waiting;
+    public bool _waiting;
     bool _patrolForward;
     float _waitTimer;
 
@@ -97,24 +96,19 @@ public class FP_NPCpatrol : MonoBehaviour
         }
         if (_patrolForward)
         {
-            _currentPatrolIndex++;
-
-            if (_currentPatrolIndex >= _patrolPoints.Count)
-            {
-                _currentPatrolIndex = 0;
-            }
+            _currentPatrolIndex = (_currentPatrolIndex + 1) % _patrolPoints.Count;
         }
         else
         {
-            _currentPatrolIndex--;
+            /*_currentPatrolIndex--;
             if (_currentPatrolIndex<0)
             {
                 _currentPatrolIndex = _patrolPoints.Count - 1;
-            }
-            /*if (--_currentPatrolIndex < 0)
+            }*/
+            if (--_currentPatrolIndex < 0)
             {
                 _currentPatrolIndex = _patrolPoints.Count - 1;
-            }*/
+            }
         }
     }
 
