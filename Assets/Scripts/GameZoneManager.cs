@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class GameZoneManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameZoneManager : MonoBehaviour
     public GameObject[] objs, mailBox;
     Gamemanager gamemanager;
 
-    MailManager mailManager;
+    public MailManager mailManager;
     public Button exit;
 
     public float distance= 2;
@@ -24,7 +25,7 @@ public class GameZoneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
+        //mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
 
 
         gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
@@ -32,7 +33,7 @@ public class GameZoneManager : MonoBehaviour
         //GetInactiveInRadius();
         mailBox = GameObject.FindGameObjectsWithTag("MailBox");
 
-        GetInactiveInRadius(60 * gamemanager.GetDay());
+        GetInactiveInRadius(45 * gamemanager.GetDay());
         for (int i = 0; i < mailBox.Length; i++)
         {
             if (mailBox[i].GetComponent<MailBox>().IsInArea)
@@ -132,17 +133,20 @@ public class GameZoneManager : MonoBehaviour
         }
 
 
-        for (int i = 0; i < NumberOfILegalMailToDeliver; i++)
+        for (int i = 0; i < activeMailBoxBlack.Count; i++)
         {
             Letter letter = new Letter(1, activeMailBoxBlack[Random.Range(0, activeMailBoxBlack.Count)]);
-            mailManager.letterList.Add(letter);
+            EditorUtility.SetDirty(letter);
+            mailManager.AddLetter(letter);
 
         }
 
-        for (int i = 0; i < NumberOfLegalMailToDeliver; i++)
+        for (int i = 0; i < activeMailBoxWhite.Count; i++)
         {
             Letter letter = new Letter(0, activeMailBoxWhite[Random.Range(0, activeMailBoxWhite.Count)]);
-            mailManager.letterList.Add(letter);
+            //EditorUtility.SetDirty(letter);
+
+            mailManager.AddLetter(letter);
         }
 
         //exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
@@ -168,7 +172,7 @@ public class GameZoneManager : MonoBehaviour
 
         foreach (GameObject mail in mailBox)
         {
-            Debug.Log("Buzon " + mail.name + " posicion: " + Vector3.Distance(transform.position, mail.transform.position) + " radio "+ _radius.ToString());
+            //Debug.Log("Buzon " + mail.name + " posicion: " + Vector3.Distance(transform.position, mail.transform.position) + " radio "+ _radius.ToString());
             if (Vector3.Distance(transform.position, mail.transform.position) < _radius)
             {
 

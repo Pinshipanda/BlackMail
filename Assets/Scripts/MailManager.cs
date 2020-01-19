@@ -64,8 +64,9 @@ public class MailManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && canDeliverLetter)
         {
-            if (other.gameObject.tag == "Mailbox")
+            if (other.gameObject.tag == "MailBox")
             {
+                Debug.Log("Con el Buzon");
                 // Find the first letter for this mailbox and deliver it.
                 SearchLetters(other.gameObject);
                 canDeliverLetter = false;
@@ -114,5 +115,11 @@ public class MailManager : MonoBehaviour
 
             go.SetActive(false);
         }     
+    }
+
+    public void AddLetter(Letter _letter)
+    {
+        Debug.Log(_letter.mailbox.name);
+        letterList.Add(_letter);
     }
 }
