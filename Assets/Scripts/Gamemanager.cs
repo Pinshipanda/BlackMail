@@ -243,7 +243,7 @@ public class Gamemanager : MonoBehaviour
         setTime = false;
         actualDay++;
         counter = 0;
-        float setmoney = (GetCurrent() * 2);
+        float setmoney = (GetCurrency() * 2);
         GetMaxBlackCard();
         GetMaxWhiteCard();
         SceneManager.LoadScene(0);
