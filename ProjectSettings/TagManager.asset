@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstaculos
   - Gamemanager
+  - MailBox
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,6 @@ TagManager:
   - Vehiculo
   - PostProcess
   - Mapa
-  - 
   - 
   - 
   - 

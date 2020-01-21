@@ -11,7 +11,7 @@ public class Letter :MonoBehaviour
     {
         type = _type;
         mailbox = _mailbox;
-        this.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        this.transform.position = GameObject.FindGameObjectWithTag("Hand").transform.position;
         this.transform.parent = GameObject.FindGameObjectWithTag("Player").transform.transform;
     }
 }

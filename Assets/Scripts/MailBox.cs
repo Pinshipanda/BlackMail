@@ -10,11 +10,13 @@ public class MailBox : MonoBehaviour
         public bool IsInArea = false, IsWhiteMail = true, HaveMail = false, IsLetter = false;
         public int HowManyMails;
 
-        public GameObject _valiza;    
+        public GameObject _valiza;
+
+        GameZoneManager gameZoneManager;
 
         void Start()
         {
-
+        gameZoneManager = GameObject.Find("GameZoneManager").GetComponent<GameZoneManager>();
         }
 
         // Update is called once per frame
@@ -35,6 +37,12 @@ public class MailBox : MonoBehaviour
         {
             return HaveMail;
         }
+
+
+        public void ReachToWin()
+    {
+        gameZoneManager.reachToWin++;
+    }
 
 
    

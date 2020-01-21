@@ -12,8 +12,8 @@ public class GameZoneManager : MonoBehaviour
 
     public MailManager mailManager;
     public Button exit;
-
-    public GameObject objletter;
+    public Animator Aplayer;
+    public GameObject objletter, player;
 
     public float distance = 2;
     public int ilegalMail = 1, legalMail = 1, NumberOfLegalMailToDeliver = 0, NumberOfILegalMailToDeliver = 0, auxTotalOfMailsWhite, auxTotalOfMailsBlack;
@@ -26,12 +26,14 @@ public class GameZoneManager : MonoBehaviour
 
     public List<GameObject> activeMailBoxTotal = new List<GameObject>(); // aqui estan todos los buzones activos
 
+
+    public int CountToWin, reachToWin;
     // Start is called before the first frame update
     void Start()
     {
         //mailManager = GameObject.FindGameObjectWithTag("Player").GetComponent<MailManager>();
 
-
+        player = GameObject.FindGameObjectWithTag("Player");
         gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
         objs = GameObject.FindGameObjectsWithTag("Obstaculos");
         //GetInactiveInRadius();
@@ -159,6 +161,7 @@ public class GameZoneManager : MonoBehaviour
             activeMailBoxTotal.Add(activeMailBoxWhite[i]);
         }
 
+        CountToWin = activeMailBoxTotal.Count;
         //exit.onClick.AddListener(GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>().FinishLevel);
     }
 
@@ -166,6 +169,14 @@ public class GameZoneManager : MonoBehaviour
     void Update()
     {
         //GetInactiveInRadius(distance);
+
+        if(reachToWin >= CountToWin)
+        {
+            Aplayer.SetInteger("DanceState", Random.Range(1, 5));
+            player.GetComponent<ThirdPersonController>().enabled = false;
+        }
+
+
     }
 
     public void GetInactiveInRadius(float _radius)

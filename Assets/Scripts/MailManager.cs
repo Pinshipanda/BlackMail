@@ -13,6 +13,7 @@ public class MailManager : MonoBehaviour
     private bool canDeliverLetter = true;
     public Gamemanager gamemanager;
 
+   
 
     private void Start()
     {
@@ -72,6 +73,8 @@ public class MailManager : MonoBehaviour
                 // Find the first letter for this mailbox and deliver it.
                 SearchLetters(other.gameObject);
                 canDeliverLetter = false;
+                other.gameObject.GetComponent<MailBox>().IsLetter = false;
+                other.gameObject.GetComponent<MailBox>().ReachToWin();
             }
         }
 

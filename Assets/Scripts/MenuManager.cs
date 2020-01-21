@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject menuCanvas, sliderCanvas;
+    public GameObject menuCanvas, sliderCanvas, menuCreditos;
     public Transform target;
+
+
 
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
@@ -40,5 +42,20 @@ public class MenuManager : MonoBehaviour
     public void exitGame()
     {
         Application.Quit();
+    }
+
+    public void Creditos()
+    {
+        menuCanvas.SetActive(false);
+        menuCreditos.SetActive(true);
+    }
+
+
+    public void SalirCredirtos()
+    {
+        menuCanvas.SetActive(true);
+        menuCreditos.SetActive(false);
+        
+        
     }
 }
